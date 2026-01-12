@@ -4,6 +4,23 @@ This guide covers deploying your React Task Manager Frontend to various platform
 
 ---
 
+## 🚂 Railway (Same Platform as Your API)
+
+If you want to keep everything on Railway (like your backend API):
+
+**See detailed guide:** [`RAILWAY_DEPLOYMENT.md`](./RAILWAY_DEPLOYMENT.md)
+
+**Quick steps:**
+1. Go to [railway.app](https://railway.app) → New Project
+2. Deploy from GitHub repo: `task-manager-frontend`
+3. Set build command: `npm install && npm run build`
+4. Set start command: `npx serve -s dist -l $PORT`
+5. Deploy! 🚀
+
+**Note:** Railway works, but Netlify/Vercel are typically faster and easier for static sites.
+
+---
+
 ## 🎯 Recommended: Netlify (Easiest & Fastest)
 
 ### Step 1: Prepare Your Code
