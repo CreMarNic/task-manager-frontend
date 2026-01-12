@@ -59,9 +59,21 @@ npm run build
 
 This creates a `dist` folder with optimized production files.
 
+## 🌐 Live Deployment
+
+**✅ Deployed on Railway:**
+- **Frontend:** [task-manager-frontend-production-df84.up.railway.app](https://task-manager-frontend-production-df84.up.railway.app)
+- **Backend API:** [task-management-api-production-96e5.up.railway.app](https://task-management-api-production-96e5.up.railway.app)
+
+---
+
 ## 🚀 Deployment
 
-### Option 1: Netlify (Recommended - Easiest)
+### Option 1: Railway (Currently Deployed)
+
+Your app is live on Railway! See [`RAILWAY_DEPLOYMENT.md`](./RAILWAY_DEPLOYMENT.md) for details.
+
+### Option 2: Netlify (Recommended - Easiest)
 
 1. Go to [netlify.com](https://netlify.com)
 2. Sign up/login
@@ -184,7 +196,7 @@ VITE_API_URL=https://task-management-api-production-96e5.up.railway.app
 
 **Marius Cretu**
 - GitHub: [CreMarNic](https://github.com/CreMarNic)
-- Portfolio: [Your Portfolio URL]
+- **Live Demo:** [task-manager-frontend-production-df84.up.railway.app](https://task-manager-frontend-production-df84.up.railway.app)
 
 ---
 
