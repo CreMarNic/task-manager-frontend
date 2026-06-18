@@ -1,203 +1,247 @@
 # Task Manager Frontend
 
-A modern React frontend application for managing tasks, connected to the Task Management REST API.
+A React + TypeScript frontend for managing tasks, connected to the Task Management REST API.
 
-## 🚀 Features
+## Full-Stack Project
 
-- **User Authentication**: Login and registration
-- **Task Management**: Create, read, update, and delete tasks
-- **Task Filtering**: Filter by status, priority, category
-- **Search**: Search tasks by title or description
-- **Status Updates**: Quick status changes via dropdown
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Modern UI**: Beautiful dark theme with smooth animations
+This repository contains only the frontend application. It is part of a full-stack Task Manager project and is designed to work with a separate backend API repository.
 
-## 🛠️ Tech Stack
+- Frontend: React, TypeScript, Vite, Axios, React Router
+- Backend API: Spring Boot REST API with JWT authentication and task CRUD endpoints
 
-- **React 18** - UI library
-- **React Router** - Navigation
-- **Axios** - HTTP client
-- **Vite** - Build tool
-- **CSS3** - Styling
+For local development, the frontend runs on `http://localhost:3000` and sends API requests to the backend on `http://localhost:8080`.
 
-## 📋 Prerequisites
+Add the backend GitHub repository URL here:
 
-- Node.js 16+ and npm
-- Task Management API running (or use the deployed version)
+```text
+Backend repository: https://github.com/YOUR_USERNAME/YOUR_BACKEND_REPOSITORY
+```
 
-## 🔧 Setup Instructions
+## Features
 
-### 1. Install Dependencies
+- User authentication with login and registration
+- Protected task dashboard
+- Create, read, update, and delete tasks
+- Filter tasks by status, priority, category, and search text
+- Quick status updates from each task card
+- Responsive dark UI
 
-```bash
+## Tech Stack
+
+- React 18
+- TypeScript
+- React Router
+- Axios
+- Vite
+- CSS
+
+## Prerequisites
+
+- Node.js 18+ and npm
+- Task Management API running locally on `http://localhost:8080`
+
+The backend project is expected at:
+
+```text
+C:\Users\crema\PROJECTS\task-api
+```
+
+Start the backend with:
+
+```powershell
+cd C:\Users\crema\PROJECTS\task-api
+mvn spring-boot:run
+```
+
+## Local Setup
+
+Install dependencies:
+
+```powershell
 npm install
 ```
 
-### 2. Configure API URL
-
-Create a `.env` file in the root directory:
+Create a `.env` file in the project root:
 
 ```env
-VITE_API_URL=https://task-management-api-production-96e5.up.railway.app
+VITE_API_URL=http://localhost:8080
 ```
 
-Or edit `src/config/api.js` to change the API URL directly.
+Start the frontend:
 
-### 3. Run Development Server
+```powershell
+npm start
+```
 
-```bash
+The frontend runs at:
+
+```text
+http://localhost:3000
+```
+
+Use this local layout:
+
+```text
+Frontend: http://localhost:3000
+Backend:  http://localhost:8080
+```
+
+## Scripts
+
+```powershell
+npm start
+```
+
+Starts the Vite dev server.
+
+```powershell
 npm run dev
 ```
 
-The app will open at `http://localhost:3000`
+Same as `npm start`.
 
-## 🏗️ Build for Production
+```powershell
+npm run typecheck
+```
 
-```bash
+Runs TypeScript type checking.
+
+```powershell
 npm run build
 ```
 
-This creates a `dist` folder with optimized production files.
+Runs TypeScript type checking and creates the production build in `dist/`.
 
-## 🌐 Live Deployment
-
-**✅ Deployed on Railway:**
-- **Frontend:** [task-manager-frontend-production-df84.up.railway.app](https://task-manager-frontend-production-df84.up.railway.app)
-- **Backend API:** [task-management-api-production-96e5.up.railway.app](https://task-management-api-production-96e5.up.railway.app)
-
----
-
-## 🚀 Deployment
-
-### Option 1: Railway (Currently Deployed)
-
-Your app is live on Railway! See [`RAILWAY_DEPLOYMENT.md`](./RAILWAY_DEPLOYMENT.md) for details.
-
-### Option 2: Netlify (Recommended - Easiest)
-
-1. Go to [netlify.com](https://netlify.com)
-2. Sign up/login
-3. Click "Add new site" → "Import an existing project"
-4. Connect your GitHub repository
-5. Build settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-6. Click "Deploy site"
-7. Done! Your site is live
-
-### Option 2: Vercel
-
-1. Go to [vercel.com](https://vercel.com)
-2. Sign up/login with GitHub
-3. Click "New Project"
-4. Import your repository
-5. Vercel auto-detects Vite settings
-6. Click "Deploy"
-7. Done!
-
-### Option 3: GitHub Pages
-
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add to `package.json`:
-   ```json
-   "homepage": "https://YOUR_USERNAME.github.io/task-manager-frontend",
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
-3. Run: `npm run deploy`
-
-## 📁 Project Structure
-
+```powershell
+npm run preview
 ```
+
+Previews the Vite production build locally.
+
+```powershell
+npm run serve:dist
+```
+
+Serves the generated `dist/` folder on port `3000`.
+
+## Project Structure
+
+```text
 task-manager-frontend/
 ├── src/
-│   ├── components/       # React components
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   ├── TaskList.jsx
-│   │   ├── TaskCard.jsx
-│   │   ├── TaskForm.jsx
-│   │   └── Navbar.jsx
-│   ├── context/         # React Context
-│   │   └── AuthContext.jsx
-│   ├── services/        # API services
-│   │   └── api.js
-│   ├── config/          # Configuration
-│   │   └── api.js
-│   ├── App.jsx
+│   ├── components/
+│   │   ├── Login.tsx
+│   │   ├── Register.tsx
+│   │   ├── TaskList.tsx
+│   │   ├── TaskCard.tsx
+│   │   ├── TaskForm.tsx
+│   │   ├── Navbar.tsx
+│   │   └── ProtectedRoute.tsx
+│   ├── context/
+│   │   └── AuthContext.tsx
+│   ├── services/
+│   │   └── api.ts
+│   ├── config/
+│   │   └── api.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── types.ts
+│   ├── vite-env.d.ts
 │   ├── App.css
-│   ├── main.jsx
 │   └── index.css
 ├── public/
+├── index.html
 ├── package.json
+├── tsconfig.json
 ├── vite.config.js
 └── README.md
 ```
 
-## 🔐 API Connection
+## API Connection
 
-The frontend connects to your Task Management API:
-- **Default URL:** `https://task-management-api-production-96e5.up.railway.app`
-- **Authentication:** JWT tokens stored in localStorage
-- **Endpoints:** All API endpoints are used (auth, tasks CRUD)
-
-## 🎨 Features in Detail
-
-### Authentication
-- Secure login/register
-- JWT token management
-- Protected routes
-- Auto-logout on token expiry
-
-### Task Management
-- Create tasks with title, description, status, priority, category, due date
-- Edit existing tasks
-- Delete tasks with confirmation
-- Quick status updates via dropdown
-- Real-time filtering and search
-
-### UI/UX
-- Dark theme
-- Smooth animations
-- Responsive design
-- Loading states
-- Error handling
-- Empty states
-
-## 🧪 Testing
-
-1. Register a new user
-2. Login with your credentials
-3. Create a task
-4. Test filtering and search
-5. Update task status
-6. Edit and delete tasks
-
-## 📝 Environment Variables
-
-Create `.env` file:
+The frontend reads the API base URL from:
 
 ```env
-VITE_API_URL=https://task-management-api-production-96e5.up.railway.app
+VITE_API_URL=http://localhost:8080
 ```
 
-## 🔄 Future Enhancements
+The API endpoints are built in `src/config/api.ts`:
 
-- [ ] Task due date reminders
-- [ ] Drag and drop task reordering
-- [ ] Task categories management
-- [ ] Dark/light theme toggle
-- [ ] Task sharing
-- [ ] Export tasks to CSV/PDF
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/tasks`
+- `POST /api/tasks`
+- `PUT /api/tasks/:id`
+- `DELETE /api/tasks/:id`
 
-## 👤 Author
+Authentication uses JWT tokens stored in `localStorage`.
 
-**Marius Cretu**
+The backend must be running for login, registration, and task management to work. Without the backend API, the frontend can still load in the browser, but authenticated features will fail because the API requests cannot be completed.
+
+## TypeScript Notes
+
+Shared application types live in:
+
+```text
+src/types.ts
+```
+
+This includes:
+
+- `User`
+- `AuthResponse`
+- `LoginCredentials`
+- `RegisterData`
+- `Task`
+- `TaskStatus`
+- `TaskPriority`
+- `TaskFilters`
+- `TaskPayload`
+
+The production build runs `tsc -b` before Vite builds, so type errors fail the build.
+
+## Testing The App Manually
+
+1. Start the backend on `http://localhost:8080`.
+2. Start the frontend on `http://localhost:3000`.
+3. Register a new account.
+4. Login with your credentials.
+5. Create a task.
+6. Test filtering, search, status updates, edit, and delete.
+
+## Deployment
+
+For static React hosting, Netlify or Vercel are the simplest options.
+
+Build command:
+
+```powershell
+npm run build
+```
+
+Publish directory:
+
+```text
+dist
+```
+
+Set `VITE_API_URL` in the hosting provider environment variables to the deployed backend API URL.
+
+Railway deployment settings are still available in `railway.json`, but local development should use the backend on port `8080` and the frontend on port `3000`.
+
+## Generated Files
+
+These can be deleted safely and regenerated:
+
+- `dist/`: generated by `npm run build`
+- `node_modules/`: regenerated by `npm install`
+
+These are local/editor files and are not required by the app:
+
+- `.idea/`
+
+## Author
+
+Marius Cretu
+
 - GitHub: [CreMarNic](https://github.com/CreMarNic)
-- **Live Demo:** [task-manager-frontend-production-df84.up.railway.app](https://task-manager-frontend-production-df84.up.railway.app)
-
----
-
-Built with ❤️ using React
