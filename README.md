@@ -14,7 +14,7 @@ For local development, the frontend runs on `http://localhost:3000` and sends AP
 Add the backend GitHub repository URL here:
 
 ```text
-Backend repository: https://github.com/YOUR_USERNAME/YOUR_BACKEND_REPOSITORY
+Backend repository: https://github.com/CreMarNic/task-manager-api.git
 ```
 
 ## Features
