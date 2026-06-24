@@ -11,9 +11,7 @@ This repository contains only the frontend application. It is part of a full-sta
 
 For local development, the frontend runs on `http://localhost:3000` and sends API requests to the backend on `http://localhost:8080`.
 
-Add the backend GitHub repository URL here:
-
-```text
+```
 Backend repository: https://github.com/CreMarNic/task-manager-api.git
 ```
 
