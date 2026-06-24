@@ -40,9 +40,7 @@ Backend repository: https://github.com/CreMarNic/task-manager-api.git
 
 The backend project is expected at:
 
-```text
-C:\Users\crema\PROJECTS\task-api
-```
+git clone https://github.com/CreMarNic/task-manager-api.git
 
 Start the backend with:
 
