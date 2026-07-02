@@ -11,9 +11,17 @@ This repository contains only the frontend application. It is part of a full-sta
 
 For local development, the frontend runs on `http://localhost:3000` and sends API requests to the backend on `http://localhost:8080`.
 
-```
+```text
 Backend repository: https://github.com/CreMarNic/task-manager-api.git
 ```
+
+## Project Highlights
+
+- JWT-based authentication flow with protected frontend routes
+- Centralized Axios API layer with environment-based backend configuration
+- Typed task, authentication, and filter models using TypeScript
+- Responsive task dashboard with filtering, searching, editing, deletion, and quick status updates
+- Production build runs TypeScript validation before bundling
 
 ## Features
 
@@ -38,14 +46,11 @@ Backend repository: https://github.com/CreMarNic/task-manager-api.git
 - Node.js 18+ and npm
 - Task Management API running locally on `http://localhost:8080`
 
-The backend project is expected at:
-
-git clone https://github.com/CreMarNic/task-manager-api.git
-
 Start the backend with:
 
 ```powershell
-cd C:\Users\crema\PROJECTS\task-api
+git clone https://github.com/CreMarNic/task-manager-api.git
+cd task-manager-api
 mvn spring-boot:run
 ```
 
@@ -196,6 +201,14 @@ This includes:
 
 The production build runs `tsc -b` before Vite builds, so type errors fail the build.
 
+## Design Decisions
+
+- React Context is used for authentication state because the app has a small global state surface.
+- API configuration is centralized so backend URL and endpoint changes stay isolated.
+- Protected routes prevent unauthenticated users from opening task management screens.
+- Vite is used for fast local development and a simple production build pipeline.
+- JWT tokens are stored in `localStorage` to keep the demo flow simple across page reloads.
+
 ## Testing The App Manually
 
 1. Start the backend on `http://localhost:8080`.
@@ -204,6 +217,40 @@ The production build runs `tsc -b` before Vite builds, so type errors fail the b
 4. Login with your credentials.
 5. Create a task.
 6. Test filtering, search, status updates, edit, and delete.
+
+Automated tests are not included yet. Current validation is done through TypeScript build checks and manual end-to-end testing with the backend API.
+
+## Docker
+
+The included `Dockerfile` serves the production build with Nginx. Build the React app first so the `dist/` folder exists:
+
+```powershell
+npm run build
+```
+
+Build the Docker image:
+
+```powershell
+docker build -t task-manager-frontend .
+```
+
+Run the container:
+
+```powershell
+docker run --rm -p 3000:80 task-manager-frontend
+```
+
+Open the app at:
+
+```text
+http://localhost:3000
+```
+
+`VITE_API_URL` is read during the Vite build, so set the correct backend API URL before running `npm run build`:
+
+```env
+VITE_API_URL=http://localhost:8080
+```
 
 ## Deployment
 
@@ -224,6 +271,13 @@ dist
 Set `VITE_API_URL` in the hosting provider environment variables to the deployed backend API URL.
 
 Railway deployment settings are still available in `railway.json`, but local development should use the backend on port `8080` and the frontend on port `3000`.
+
+## Future Improvements
+
+- Add automated tests with React Testing Library
+- Improve token refresh and logout handling
+- Add loading and error states for all API actions
+- Add pagination or sorting for larger task lists
 
 ## Generated Files
 
